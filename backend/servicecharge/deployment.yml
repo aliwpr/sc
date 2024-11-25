@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: candoo-back-deployment
+  namespace: candoo-prod
+  labels:
+    app.kubernetes.io/name: candoo-back
+    app.kubernetes.io/version: "0-0-2"
+    app.kubernetes.io/component: back
+  annotations:
+    kubernetes.io/change-cause: "image changed from v0.0.1 to v0.0.2"
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: candoo-back
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: candoo-back
+        app.kubernetes.io/version: "0-0-2"
+        app.kubernetes.io/component: back
+    spec:
+      containers:
+        - name: candoo-back
+          image: docker.repo.taavsystem.ir/service-charge-back:0.0.2
+          resources:
+            requests:
+              cpu: 300m
+              memory: 300Mi
+            limits:
+              cpu: 750m
+              memory: 750Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            timeoutSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 15
+            timeoutSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+            periodSeconds: 10
+          ports:
+            - name: web
+              containerPort: 5000
+          env:
+            - name: url
+              value: "http://0.0.0.0:5000"
+          envFrom:
+            - secretRef:
+                name: candoo-back-secret
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: private-repo
