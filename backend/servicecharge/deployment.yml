@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: candoo-back-deployment
-  namespace: {{ namespace }}
+  namespace: default
   labels:
     app.kubernetes.io/name: candoo-back
-    app.kubernetes.io/version: "{{ image.tag }}"
+    app.kubernetes.io/version: "latest"
     app.kubernetes.io/component: back
   annotations:
-    kubernetes.io/change-cause: "image changed from v{{ previousVersion }} to v{{ image.tag }}"
+    kubernetes.io/change-cause: "image changed from v0.0.0 to vlatest"
 spec:
   selector:
     matchLabels:
@@ -23,12 +23,12 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: candoo-back
-        app.kubernetes.io/version: "{{ image.tag }}"
+        app.kubernetes.io/version: "latest"
         app.kubernetes.io/component: back
     spec:
       containers:
         - name: candoo-back
-          image: docker.repo.taavsystem.ir/service-charge-back:{{ image.tag }}
+          image: docker.repo.taavsystem.ir/service-charge-back:latest
           resources:
             requests:
               cpu: 300m

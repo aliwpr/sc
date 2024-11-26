@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: candoo-migration-job-{{ image.tag }}
-  namespace: {{ namespace }}
+  name: candoo-migration-job-latest
+  namespace: default
 spec:
   template:
     spec:
       containers:
         - name: candoo-migration
-          image: docker.repo.taavsystem.ir/service-charge-migrations:{{ image.tag }}
+          image: docker.repo.taavsystem.ir/service-charge-migrations:latest
           envFrom:
             - secretRef:
                 name: candoo-back-secret

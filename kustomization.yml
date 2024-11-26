@@ -1,0 +1,15 @@
+resources:
+  - deployment.yaml
+  - migration-job.yaml
+
+images:
+  - name: docker.repo.taavsystem.ir/service-charge-back
+    newTag: latest
+  - name: docker.repo.taavsystem.ir/service-charge-migrations
+    newTag: latest
+
+namespace: default
+commonAnnotations:
+  kubernetes.io/change-cause: "image changed from v0.0.0 to vlatest"
+commonLabels:
+  app.kubernetes.io/version: "latest"
