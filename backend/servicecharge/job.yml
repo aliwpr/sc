@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: candoo-migration-job-{{ .Values.image.tag }}
+  namespace: {{ .Values.namespace }}
+spec:
+  template:
+    spec:
+      containers:
+        - name: candoo-migration
+          image: docker.repo.taavsystem.ir/service-charge-migrations:{{ .Values.image.tag }}
+          envFrom:
+            - secretRef:
+                name: candoo-back-secret
+      restartPolicy: OnFailure
+      imagePullSecrets:
+        - name: private-repo
