@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: candoo-migration
-          image: docker.repo.taavsystem.ir/service-charge-argo-migrations:08d707967783f3ceba8f9d140c0cbdd9996460b6bdc8bceeeed7198ecb4dfd58
+          image: docker.repo.taavsystem.ir/service-charge-argo-migrations:1e4d61f4e979c024270cf2306d5415f238d39631b254f5de18a0870dbda421df
           envFrom:
             - secretRef:
                 name: candoo-back-secret

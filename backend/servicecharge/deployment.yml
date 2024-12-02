@@ -5,10 +5,10 @@ metadata:
   namespace: candoo-test
   labels:
     app.kubernetes.io/name: candoo-back
-    app.kubernetes.io/version: "0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
+    app.kubernetes.io/version: "1783dc1959b5612beb637da8f01288620db7cf208ae57f73a95f485e2f7609bc"
     app.kubernetes.io/component: back
   annotations:
-    kubernetes.io/change-cause: "image updated to 0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
+    kubernetes.io/change-cause: "image updated to 1783dc1959b5612beb637da8f01288620db7cf208ae57f73a95f485e2f7609bc"
 spec:
   selector:
     matchLabels:
@@ -23,12 +23,12 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: candoo-back
-        app.kubernetes.io/version: "0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
+        app.kubernetes.io/version: "1783dc1959b5612beb637da8f01288620db7cf208ae57f73a95f485e2f7609bc"
         app.kubernetes.io/component: back
     spec:
       containers:
         - name: candoo-back
-          image: docker.repo.taavsystem.ir/service-charge-argo-back:0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3
+          image: docker.repo.taavsystem.ir/service-charge-argo-back:1783dc1959b5612beb637da8f01288620db7cf208ae57f73a95f485e2f7609bc
           resources:
             requests:
               cpu: 300m
