@@ -1,6 +1,6 @@
 resources:
-  - deployment.yaml
-  - migration-job.yaml
+  - deployment.yml
+  - job.yml
 
 images:
   - name: docker.repo.taavsystem.ir/service-charge-back
