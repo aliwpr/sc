@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: candoo-back-deployment
-  namespace: default
+  namespace: candoo-test
   labels:
     app.kubernetes.io/name: candoo-back
-    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/version: "0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
     app.kubernetes.io/component: back
   annotations:
-    kubernetes.io/change-cause: "image changed from v0.0.0 to vlatest"
+    kubernetes.io/change-cause: "image updated to 0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
 spec:
   selector:
     matchLabels:
@@ -23,12 +23,12 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: candoo-back
-        app.kubernetes.io/version: "latest"
+        app.kubernetes.io/version: "0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3"
         app.kubernetes.io/component: back
     spec:
       containers:
         - name: candoo-back
-          image: docker.repo.taavsystem.ir/service-charge-back:latest
+          image: docker.repo.taavsystem.ir/service-charge-argo-back:0d0bcb59a076424011a0625ff7a2484595e07336617e2e00da3fb67e6123bcd3
           resources:
             requests:
               cpu: 300m
