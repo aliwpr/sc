@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/name: candoo-back
     app.kubernetes.io/version: "b11556591"
     app.kubernetes.io/component: back
+    app.kubernetes.io/azurebuildid: "12878"
   annotations:
     kubernetes.io/change-cause: "image updated to b11556591"
 spec:
