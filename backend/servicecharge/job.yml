@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: migration-job-1df196ea21e
+  name: migration-job-4960effc5d5
   namespace: candoo-test
 spec:
   template:
     spec:
       containers:
         - name: candoo-migration
-          image: docker.repo.taavsystem.ir/service-charge-argo-migrations:1df196ea21e
+          image: docker.repo.taavsystem.ir/service-charge-argo-migrations:4960effc5d5
           envFrom:
             - secretRef:
                 name: candoo-back-secret
