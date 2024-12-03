@@ -5,11 +5,11 @@ metadata:
   namespace: candoo-test
   labels:
     app.kubernetes.io/name: candoo-back
-    app.kubernetes.io/version: "b11556591"
+    app.kubernetes.io/version: "0226596205e"
     app.kubernetes.io/component: back
     app.kubernetes.io/azurebuildid: "12878"
   annotations:
-    kubernetes.io/change-cause: "image updated to b11556591"
+    kubernetes.io/change-cause: "image updated to 0226596205e"
 spec:
   selector:
     matchLabels:
@@ -24,12 +24,12 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: candoo-back
-        app.kubernetes.io/version: "b11556591"
+        app.kubernetes.io/version: "0226596205e"
         app.kubernetes.io/component: back
     spec:
       containers:
         - name: candoo-back
-          image: docker.repo.taavsystem.ir/service-charge-argo-back:b11556591
+          image: docker.repo.taavsystem.ir/service-charge-argo-back:0226596205e
           resources:
             requests:
               cpu: 300m
